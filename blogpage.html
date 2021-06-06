@@ -8,6 +8,17 @@
         <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&family=Open+Sans+Condensed:wght@300&family=Stint+Ultra+Expanded&display=swap" rel="stylesheet"> 
         <link href="css/styles.css" rel="stylesheet">
         <link rel="icon" href="data:;base64,="/>
+        <!-- Hotjar Tracking Code for https://badinfluencemom.netlify.app/b_i_m/ -->
+        <script>
+            (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:2398157,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+        </script>
         <title>blogposts | badinfluencemom</title>
     </head>
     <body>
@@ -18,7 +29,7 @@
                     <i class="fab fa-twitter social_icon"></i>
                 </div>
                 <div class="logo_container">
-                    <a href="index.html"><img src="images/barcode_logo7.png" class="logo"></a>
+                    <a href="index.html" aria-label="link to homepage"><img src="images/barcode_logo7.png" class="logo" alt="bad influence mom logo" ></a>
                 </div>
                 <div class="searchbox">
                     <input class="search" type="text" name="search" aria-label="search input" placeholder="search..">
@@ -71,6 +82,7 @@
                 <div class="main_content_container">
                     <h1 class="main_title">blog posts</h1>
                     <div class="posts_container">
+                        <div class="loading_container">
                         <div class="loading">
                             <span class="dot"></span>
                             <div class="dots">
@@ -79,12 +91,13 @@
                                 <span></span>
                             </div>
                         </div>
+                        </div>
                     </div>
                     <button class="cta_btn view_more_posts">view more</button>
                 </div>
                 <div class="widget">
                     <div class="mini_introduction">
-                        <img src="images/profilepic.jpg" class="profile_pic">
+                        <img src="images/profilepic.jpg" class="profile_pic" alt="popart of woman eating an orange slice">
                         <div class="mini_introduction_text">
                             <h4>a blogspot about beeing a mother of two and wife to be.</h4>
                             <h4>Trying to figure out my direction, memeing about being a introverted extrovert, parenting, bad lifechoices and programming along the way</h4>
@@ -148,7 +161,8 @@
                 <i class="far fa-copyright">2021 bad influence mom. All Rights Reserved</i>
             </div>
         </footer>
-
-        <script src="js/script.js"></script>
+        
+        <script src="js/components/displayError.js"></script>
+        <script src="js/posts.js"></script>
     </body>
 </html>

@@ -7,6 +7,17 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&family=Open+Sans+Condensed:wght@300&family=Stint+Ultra+Expanded&display=swap" rel="stylesheet"> 
         <link href="css/styles.css" rel="stylesheet">
+        <!-- Hotjar Tracking Code for https://badinfluencemom.netlify.app/b_i_m/ -->
+        <script>
+            (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:2398157,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+        </script>
         <title>contact | badinfluencemom</title>
     </head>
     <body>
@@ -17,7 +28,7 @@
                     <i class="fab fa-twitter social_icon"></i>
                 </div>
                 <div class="logo_container">
-                    <a href="index.html"><img src="images/barcode_logo7.png" class="logo"></a>
+                    <a href="index.html" aria-label="link to homepage"><img src="images/barcode_logo7.png" class="logo" alt="bad influence mom logo"></a>
                 </div>
                 <div class="searchbox">
                     <input class="search" type="text" name="search" aria-label="search input" placeholder="search..">
@@ -71,22 +82,22 @@
                     <h1 class="main_title">contact</h1>
                     <form action="/Contact" method="POST" class="contact_form">
                         <div class="form_fillout">
-                            <label for="fullname" class="form_text">Your fullname</label>
+                            <label for="fullname" class="form_text">Your fullname* (min 5 characters)</label>
                             <input type="text" id="fullname" name="fullname" placeholder="Firstname Lastname" class="form_input">
                             <div class="form_error" id="fullname_error">Please enter your full name (min 5 characters)</div>
                         </div>
                         <div class="form_fillout">
-                            <label for="email" class="form_text">email</label>
-                            <input type="email" id="email" name="email" placeholder="name@exemple.com" class="form_input">
+                            <label for="email" class="form_text">email*</label>
+                            <input type="email" id="email" name="email" placeholder="name@example.com" class="form_input">
                             <div class="form_error" id="email_error">Please enter a valid e-mail adress</div>
                         </div>
                         <div class="form_fillout">
-                            <label for="subject" class="form_text">Subject (min 15 characters)</label>
+                            <label for="subject" class="form_text">Subject* (min 15 characters)</label>
                             <input type="text" id="subject" name="subject" placeholder="Subject" class="form_input">
                             <div class="form_error" id="subject_error">Subject needs to be min 15 characters</div>
                         </div>
                         <div class="form_message_container">
-                            <label for="message" class="form_text">message (min 25 characters)</label>
+                            <label for="message" class="form_text">message* (min 25 characters)</label>
                             <textarea id="message" name="message" class="form_message" placeholder="Message"></textarea>
                             <div class="form_error" id="message_error">Message needs to be min 25 characters</div>
                         </div>
@@ -100,7 +111,7 @@
 
                 <div class="widget">
                     <div class="mini_introduction">
-                        <img src="images/profilepic.jpg" class="profile_pic">
+                        <img src="images/profilepic.jpg" class="profile_pic" alt="popart of woman eating an orange slice">
                         <div class="mini_introduction_text">
                             <h4>This is a blogspot about beeing a mother of two and wife to be.</h4>
                             <h4>Trying to figure out my direction, memeing about being a introverted extrovert, parenting, bad lifechoices and programming along the way</h4>

@@ -1,12 +1,11 @@
 const blogIntro = document.querySelector(".blog_intro");
-const detailsContent = document.querySelector(".details_content")
+const detailsContent = document.querySelector(".details_content");
+const title = document.querySelector("title");
+
 
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const id = params.get("id");
-console.log(queryString);
-console.log(params);
-console.log(id);
 
 // fetch blogDetails
 const baseUrl = "https://ellesdevdesigns.com/wp-json/wp/v2/";
@@ -21,13 +20,13 @@ async function fetchBlogDetails() {
         const respons = await fetch(urlDetails + "?_embed");
         const results = await respons.json();
 
-        console.log(results);
         let category = results.categories[0];
-        console.log("cat: " + category)
         fetchPostByCategory(category);
+
+        title.innerHTML = `${results.title.rendered} | badinfluencemom`
         
-        blogIntro.innerHTML = `<img src="${results._embedded['wp:featuredmedia'][0].source_url}" class="detail_image">
-                                <div class="modal">
+        blogIntro.innerHTML = `<img src="${results._embedded['wp:featuredmedia'][0].source_url}" class="detail_image" tabindex="0" alt="${results._embedded['wp:featuredmedia'][0].alt_text}">
+                                <div class="modal" tabindex="-1">
                                     <img class="modal_img">
                                 </div>
                                 <div class="blog_title">
@@ -44,13 +43,26 @@ async function fetchBlogDetails() {
             modal.style.display = "block";
             modalImg.src = this.src;
         }
+        img.onkeydown = function(e) {
+            if (e.key !== "Tab"){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                modal.focus();
+            }            
+        };
         modal.onclick = function() {
             modal.style.display = "none";
         }
+        modal.onkeydown = function(e) {
+            if (e.key !== "Tab"){
+                modal.style.display = "none";
+            }            
+        };
 
     }
     catch (error) {
-        console.log(error);
+        blogIntro.innerHTML = displayError("An error occured when calling API");
+        detailsContent.innerHTML = displayError("An error occured when calling API");
     }
 }
 
@@ -65,13 +77,11 @@ async function fetchPostByCategory(category) {
         const response = await fetch(embedUrl + "&categories=" + category);
         const results = await response.json();
 
-        console.log(results);
         relatedPosts.innerHTML = "";
 
         for (let i = 0; i < results.length; i++) {
-
             relatedPosts.innerHTML += `<a href="blogdetails.html?id=${results[i].id}" class="card_post">
-                                            <img src="${results[i]._embedded['wp:featuredmedia'][0].source_url}" class="card_image">
+                                            <img src="${results[i]._embedded['wp:featuredmedia'][0].source_url}" class="card_image" alt="${results[i]._embedded['wp:featuredmedia'][0].alt_text}">
                                             <div class="title">
                                             <h4 class="card_title">${results[i].title.rendered}</h4>
                                             <p class="publish_date">published: ${results[i].date}</p>
@@ -88,6 +98,8 @@ async function fetchPostByCategory(category) {
 // // parenting = 2
 // // lifestyle = 3
 // // personal = 4
+
+// add clickfunction to arrows
 const arrowLeft = document.querySelector(".arrow_left");
 const arrowRight = document.querySelector(".arrow_right");
 
@@ -96,49 +108,25 @@ function scroll(amount) {
     scrollDiv.scrollLeft += amount;
 }
 
-function scrollLeft(){
-    scroll(-100);
+addEventListeners(arrowLeft, function (){
+    scroll(-250);
+});
+addEventListeners(arrowRight, function (){
+    scroll(250);
+});
+
+
+// add comment
+const comment = document.querySelector("#comment");
+const button = document.querySelector(".cta_btn");
+
+function validateComment() {
+    if (comment.value.length >= 5) {
+        button.disabled = false;
+    }
+    else {
+        button.disabled = true;
+    }
 }
 
-function scrollRight(){
-    scroll(100);
-}
-
-arrowLeft.addEventListener("click", scrollLeft);
-arrowRight.addEventListener("click", scrollRight);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// modal image
-// const modal = document.querySelector(".modal");
-// const img = document.querySelector(".detail_image");
-// const modalImg = document.querySelector(".modal_img");
-
-// console.log(modal);
-// console.log(img);
-// console.log(modalImg);
-
-// img.onclick = function() {
-//     debugger;
-//     modal.style.display = "block";
-//     modalImg.src = this.src;
-// }
-// modal.onclick = function() {
-//     debugger;
-//     modal.style.display = "none";
-// }
+comment.addEventListener("keyup", validateComment);

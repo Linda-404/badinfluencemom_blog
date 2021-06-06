@@ -1,98 +1,61 @@
-const postContainer = document.querySelector(".posts_container");
-const viewMoreBtn = document.querySelector(".view_more_posts");
+// add event listeners
+function addEventListeners(target, action) {
+    target.addEventListener("keydown", action);
+    target.addEventListener("click", action);
+}
 
-// fetch posts
-const url = "https://ellesdevdesigns.com/wp-json/wp/v2/posts?_embed";
+// fetch memes
+const urlMemes = "https://ellesdevdesigns.com/wp-json/wc/store/products/";
 
-async function fetchPosts() {
-
+async function fetchMemes(memeUrl) {
     try {
-        const response = await fetch(url);
+        const response = await fetch(memeUrl);
         const results = await response.json();
 
-        console.log(results);
-        postContainer.innerHTML = "";
+        memeContainer.innerHTML = "";
 
         for (let i = 0; i < results.length; i++) {
 
-            postContainer.innerHTML += `<a href="blogdetails.html?id=${results[i].id}" class="card_post">
-                                            <img src="${results[i]._embedded['wp:featuredmedia'][0].source_url}" class="blog_image">
-                                            <div class="title">
-                                                <h4 class="card_title">${results[i].title.rendered}</h4>
-                                                <p class="publish_date">published: ${results[i].date}</p>
-                                            </div>
-                                        </a>`
+            memeContainer.innerHTML += `<img src="${results[i].images[0].src}" class="meme" tabindex="0" alt="${results[i].images[0].alt}">
+                                        <div class="modal" tabindex="-1">
+                                            <img class="modal_img">
+                                        </div>`
         }
+
+        addModal();
+
     }
     catch (error) {
         console.log(error);
+        memeContainer.innerHTML = displayError("An error occured when calling API, please refresh or try again later");
     }
 }
 
-fetchPosts();
-
-async function fetchAllPosts() {
-
-    try {
-        const response = await fetch(url + "&per_page=100");
-        const results = await response.json();
-
-        console.log(results);
-        postContainer.innerHTML = "";
-
-        for (let i = 0; i < results.length; i++) {
-
-            postContainer.innerHTML += `<a href="blogdetails.html?id=${results[i].id}" class="card_post">
-                                            <img src="${results[i]._embedded['wp:featuredmedia'][0].source_url}" class="card_image">
-                                            <div class="title">
-                                                <h4 class="card_title">${results[i].title.rendered}</h4>
-                                                <p class="publish_date">published: ${results[i].date}</p>
-                                            </div>
-                                        </a>`
-        }
-    }
-    catch (error) {
-        console.log(error);
+// add modal
+function addModal(){
+    let images = document.querySelectorAll(".meme");
+    for (let i=0; i < images.length; i++){
+        let image = images[i];
+        let modal = document.querySelector(`.modal`);
+        let modalImg = document.querySelector(`.modal_img`);
+        image.addEventListener("click", function() {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+        });
+        image.addEventListener("keydown", function(e) {
+            if (e.key !== "Tab"){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                modal.focus();
+            }            
+        });
+        addEventListeners(modal, function() {
+            modal.style.display = "none";
+        });
     }
 }
 
-viewMoreBtn.addEventListener("click", fetchAllPosts);
 
-
-
-//  categories posts
-const parenting = 2;
-const lifestyle = 3;
-const personal = 4;
-
-// fetch posts by category
-const relatedPosts = document.querySelector(".related_posts");
-
-async function fetchPostByCategory(category) {
-    try {
-        const response = await fetch(url + "&categories=" + category);
-        const results = await response.json();
-
-        console.log(results);
-        // relatedPosts.innerHTML = "";
-
-        // for (let i = 0; i < results.lenght; i++) {
-
-        //     relatedPosts.innerHTML += `<a href="blogdetails.html?id=${results[i].id}" class="card_post">
-        //                                     <img src="${results[i]._embedded['wp:featuredmedia'][0].source_url}" class="card_image">
-        //                                     <div class="title">
-        //                                     <h4 class="card_title">${results[i].title.rendered}</h4>
-        //                                     <p class="publish_date">published: ${results[i].date}</p>
-        //                                     </div>
-        //                                 </a>`
-        // }
-    }
-    catch (error) {
-        console.log(error);
-    }
-}
-
-fetchPostByCategory(lifestyle);
 
 
 

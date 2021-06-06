@@ -8,6 +8,17 @@
         <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&family=Open+Sans+Condensed:wght@300&family=Stint+Ultra+Expanded&display=swap" rel="stylesheet"> 
         <link href="css/styles.css" rel="stylesheet">
         <link rel="icon" href="data:;base64,="/>
+        <!-- Hotjar Tracking Code for https://badinfluencemom.netlify.app/b_i_m/ -->
+        <script>
+            (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:2398157,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+        </script>
         <title>memes | badinfluencemom</title>
     </head>
     <body>
@@ -18,7 +29,7 @@
                     <i class="fab fa-twitter social_icon"></i>
                 </div>
                 <div class="logo_container">
-                    <img src="images/barcode_logo7.png" class="logo">
+                    <a href="index.html" aria-label="link to homepage"><img src="images/barcode_logo7.png" class="logo"alt="bad influence mom logo" ></a>
                 </div>
                 <div class="searchbox">
                     <input class="search" type="text" name="search" aria-label="search input" placeholder="search..">
@@ -30,10 +41,10 @@
                     <div class="hamburger_menu">
                         <h6>menu</h6>
                         <div class="hamburger_menu_items">
-                            <div class="hamburger_menu_item">home</div>
-                            <a href="about.html" class="hamburger_menu_item">about</a>
+                            <a href="index.html" class="hamburger_menu_item">home</a>
+                            <a class="hamburger_menu_item">about</a>
                             <a href="blogpage.html" class="hamburger_menu_item">blog</a>
-                            <a href="memespage.html" class="hamburger_menu_item">memes</a>
+                            <div class="hamburger_menu_item">memes</div>
                             <a href="contact.html" class="hamburger_menu_item">contact</a>
                         </div>    
                     </div>
@@ -71,39 +82,41 @@
                 <div class="main_content_container">
                     <h1 class="main_title">memes</h1>
                     <div class="meme_category_container">
-                        <div class="meme_category parenting_memes">
-                            <img src="images/boom_square.jpg" class="meme_icon">
-                            <a class="meme_category_title">parenting</a>
+                        <div class="meme_category parenting_memes" tabindex="0">
+                            <img src="images/boom_square.jpg" class="meme_icon" tabindex="0" alt="popart of text saying boom">
+                            <p class="meme_category_title">parenting</p>
                         </div>
-                        <div class="meme_category programming_memes">
-                            <img src="images/programmer_square.jpg" class="meme_icon">
-                            <a class="meme_category_title">programming</a>
+                        <div class="meme_category programming_memes" tabindex="0">
+                            <img src="images/programmer_square.jpg" class="meme_icon" tabindex="0" alt="concentrated looking stickfigure infront of computer">
+                            <p class="meme_category_title">programming</p>
                         </div>
-                        <div class="meme_category personal_memes">
-                            <img src="images/pink_kiss_square.jpg" class="meme_icon">
-                            <a class="meme_category_title">personal</a>
+                        <div class="meme_category personal_memes" tabindex="0">
+                            <img src="images/pink_kiss_square.jpg" class="meme_icon" tabindex="0" alt="pink lips">
+                            <p class="meme_category_title">personal</p>
                         </div>
-                        <div class="meme_category all_memes">
-                            <img src="images/tv-404_square.jpg" class="meme_icon">
-                            <a class="meme_category_title">all</a>
+                        <div class="meme_category all_memes" tabindex="0">
+                            <img src="images/tv-404_square.jpg" class="meme_icon" tabindex="0" alt="tv displaying standby image">
+                            <p class="meme_category_title">all</p>
                         </div>
                     </div>
                     <div class="memes_container">
                         <div class="memes">
-                            <div class="loading">
-                                <span class="dot"></span>
-                                <div class="dots">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
+                            <div class="loading_container">
+                                <div class="loading">
+                                    <span class="dot"></span>
+                                    <div class="dots">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
                                 </div>
-                            </div>    
+                            </div>   
                         </div>
                     </div>
                 </div>
                 <div class="widget">
                     <div class="mini_introduction">
-                        <img src="images/profilepic.jpg" class="profile_pic">
+                        <img src="images/profilepic.jpg" class="profile_pic" alt="popart of woman eating an orange slice">
                         <div class="mini_introduction_text">
                             <h4>This is a blogspot about beeing a mother of two and wife to be.</h4>
                             <h4>Trying to figure out my direction, memeing about being a introverted extrovert, parenting, bad lifechoices and programming along the way</h4>
@@ -167,7 +180,9 @@
                 <i class="far fa-copyright">2021 bad influence mom. All Rights Reserved</i>
             </div>
         </footer>
-
+        
+        <script src="js/components/displayError.js"></script>
+        <script src="js/script.js"></script>
         <script src="js/memes.js"></script>
     </body>
 </html>

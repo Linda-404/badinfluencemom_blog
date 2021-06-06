@@ -1,6 +1,6 @@
 <html lang="en">
     <head>
-        <title>home | badinfluencemom</title>
+        <title>a blogspot about beeing a mother of two and wife to be, memeing along the way | badinfluencemom</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +15,17 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&family=Open+Sans+Condensed:wght@300&family=Stint+Ultra+Expanded&display=swap" rel="stylesheet"> 
         <link href="css/styles.css" rel="stylesheet">
+        <!-- Hotjar Tracking Code for https://badinfluencemom.netlify.app/b_i_m/ -->
+        <script>
+            (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:2398157,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+        </script>
         <link rel="icon" href="data:;base64,="/>
     </head>
     <body>
@@ -25,7 +36,7 @@
                     <i class="fab fa-twitter social_icon"></i>
                 </div>
                 <div class="logo_container">
-                    <img src="images/barcode_logo7.png" class="logo">
+                    <img src="images/barcode_logo7.png" class="logo" alt="bad influence mom logo">
                 </div>
                 <div class="searchbox">
                     <input class="search" type="text" name="search" aria-label="search input" placeholder="search..">
@@ -75,7 +86,7 @@
         </nav>
         <main>
             <div class="frontpage">
-                <img src="images/bath.png" class="frontpage_img">
+                <img src="images/bath.png" class="frontpage_img" alt="woman laying in a pinkbathtub">
                 <div class="frontpage_text">
                     <h1>the art of jumping and falling at the same time</h1>
                 </div>
@@ -83,9 +94,20 @@
             <section class="latest_posts_container">
                 <h4 class="latest_posts_title">Latest posts</h4>
                 <div class="scroll_section">
-                    <a class="arrow arrow_left"><i class="fas fa-chevron-left"></i></a>
-                    <div class="scrolling_wrapper latest_posts"></div>
-                    <a class="arrow arrow_right"><i class="fas fa-chevron-right"></i></a>
+                    <div class="arrow arrow_left" tabindex="0"><i class="fas fa-chevron-left"></i></div>
+                    <div class="scrolling_wrapper latest_posts">
+                        <div class="loading_container">
+                            <div class="loading">
+                                <span class="dot"></span>
+                                <div class="dots">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="arrow arrow_right" tabindex="0"><i class="fas fa-chevron-right"></i></div>
                 </div>
             </section>
 
@@ -101,7 +123,7 @@
 
                 <div class="widget">
                     <div class="mini_introduction">
-                        <img src="images/profilepic.jpg" class="profile_pic">
+                        <img src="images/profilepic.jpg" class="profile_pic" alt="popart of woman eating an orange slice">
                         <div class="mini_introduction_text">
                             <h4>a blogspot about beeing a mother of two and wife to be.</h4>
                             <h4>Trying to figure out my direction, memeing about being a introverted extrovert, parenting, bad lifechoices and programming along the way</h4>
@@ -165,7 +187,9 @@
                 <i class="far fa-copyright">2021 bad influence mom. All Rights Reserved</i>
             </div>
         </footer>
-        
+
+        <script src="js/components/displayError.js"></script>
+        <script src="js/script.js"></script>
         <script src="js/index.js"></script>
     </body>
 </html>
