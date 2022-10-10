@@ -220,15 +220,17 @@ main {
     align-items: center;
 }
 .frontpage {
-    width: 100%;
+    width: 90%;
+    width: calc(min(1500px, 90vw));
     display: flex;
-    padding: 3rem 2rem;
+    padding: 3rem 0rem;
 }
 .frontpage_img {
     width: 100%;
 }
 .frontpage_text {
     align-self: center;
+    padding: 0.5rem;
 }
 
 /* scrolling section */
